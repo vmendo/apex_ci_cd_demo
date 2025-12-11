@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+<include file="wksp_demo/package_specs/eba_demo_data_load.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/tables/eba_demo_load_dept.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/tables/eba_demo_load_emp.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/tables/eba_demo_load_emp_err$.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/tables/eba_demo_load_sales.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/package_bodies/eba_demo_data_load.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/tables/eba_demo_merchandise.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/comments/eba_demo_load_emp_err$.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/indexes/eba_demo_load_emp_1.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/indexes/eba_demo_load_emp_2.sql" relativeToChangelogFile="true"/>
+<include file="wksp_demo/ref_constraints/eba_demo_load_emp.eba_demo_load_dept.sql" relativeToChangelogFile="true"/>
+</databaseChangeLog>
