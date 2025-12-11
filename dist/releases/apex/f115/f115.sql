@@ -36,10 +36,10 @@ prompt APPLICATION 115 - Employees and Sales
 --   Exported By:     WKSP_DEMO
 --   Flashback:       0
 --   Export Type:     Application Export
---     Pages:                     12
+--     Pages:                     13
 --       Items:                   37
 --       Processes:               10
---       Regions:                 27
+--       Regions:                 28
 --       Buttons:                 13
 --       Dynamic Actions:          5
 --     Shared Components:
@@ -108,7 +108,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'Load Emp'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
-,p_version_scn=>45816767980856
+,p_version_scn=>45816769111331
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -3408,6 +3408,77 @@ wwv_flow_imp_page.create_page_process(
 );
 end;
 /
+prompt --application/pages/page_00013
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>13
+,p_name=>'Merchandise'
+,p_alias=>'MERCHANDISE'
+,p_step_title=>'Merchandise'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(26067079266333577)
+,p_name=>'Merchandise'
+,p_template=>4072358936313175081
+,p_display_sequence=>10
+,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--hideHeader js-addHiddenHeadingRoleDesc:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:t-Report--stretch:t-Report--staticRowColors:t-Report--rowHighlight:t-Report--inline:t-Report--hideNoPagination'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'TABLE'
+,p_query_table=>'EBA_DEMO_MERCHANDISE'
+,p_include_rowid_column=>false
+,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
+,p_query_row_template=>2538654340625403440
+,p_query_num_rows=>50
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_no_data_found=>'no data found'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_query_row_count_max=>500
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_prn_output=>'N'
+,p_prn_format=>'PDF'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(26067383858333704)
+,p_query_column_id=>1
+,p_column_alias=>'ID'
+,p_column_display_sequence=>0
+,p_column_heading=>'ID'
+,p_heading_alignment=>'LEFT'
+,p_disable_sort_column=>'N'
+,p_hidden_column=>'Y'
+,p_include_in_export=>'N'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(26067702758333705)
+,p_query_column_id=>2
+,p_column_alias=>'NAME'
+,p_column_display_sequence=>2
+,p_column_heading=>'Name'
+,p_heading_alignment=>'LEFT'
+,p_default_sort_column_sequence=>1
+,p_disable_sort_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(26068121019333707)
+,p_query_column_id=>3
+,p_column_alias=>'DESCRIPTION'
+,p_column_display_sequence=>3
+,p_column_heading=>'Description'
+,p_heading_alignment=>'LEFT'
+,p_default_sort_column_sequence=>1
+,p_disable_sort_column=>'N'
+,p_include_in_export=>'Y'
+);
+end;
+/
 prompt --application/pages/page_09999
 begin
 wwv_flow_imp_page.create_page(
@@ -3848,4 +3919,4 @@ prompt  ...done
 
 
 
--- sqlcl_snapshot {"hash":"52185df09a56c336eb7aa591d835cef848f028af","type":"APEX_APPLICATIONS","name":"f115","schemaName":"WKSP_DEMO","sxml":""}
+-- sqlcl_snapshot {"hash":"ae7c0929c5b2242ea4568f59c70d283d9608904a","type":"APEX_APPLICATIONS","name":"f115","schemaName":"WKSP_DEMO","sxml":""}
