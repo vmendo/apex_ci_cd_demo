@@ -115,7 +115,7 @@
     link: 
       target: 
         url: 'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
-        page: 13
+        page: 13 # Merchandise
 
   - # ====== Entry: Merchandise IR ===============================
     id: 10060475967164504
@@ -227,5 +227,5 @@
     link: 
       target: 
         url: 'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
-        page: 13
+        page: 13 # Merchandise
 
