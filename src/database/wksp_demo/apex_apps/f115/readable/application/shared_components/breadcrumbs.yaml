@@ -129,7 +129,7 @@
     link: 
       target: 
         url: 'f?p=&APP_ID.:15:&APP_SESSION.::&DEBUG.:::'
-        page: 15
+        page: 15 # Merchandise
 
   - # ====== Entry: Merchandise IR ===============================
     id: 10066324567100470
