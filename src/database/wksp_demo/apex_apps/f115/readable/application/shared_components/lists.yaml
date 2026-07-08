@@ -5,7 +5,7 @@
     name: Navigation Menu
 
   subscription: 
-    version-number: 45148038140340
+    version-number: 49821514902031
 
   source: 
     type: Static Values
@@ -184,6 +184,33 @@
       target: 
         url: 'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
         page: 13
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Merchandise_report ===========================
+    id: 36091142790859338
+    label: 
+      label: Merchandise_report
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 80
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 11
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+        page: 11 # Merchandise_report
 
     click-counting: 
       count-clicks: false
