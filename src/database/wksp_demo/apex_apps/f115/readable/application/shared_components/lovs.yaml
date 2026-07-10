@@ -1,0 +1,41 @@
+---
+- # ====== List of Values: EBA_DEMO_LOAD_DEPT.DNAME ============
+  id: 9716271239885702
+  identification: 
+    name: EBA_DEMO_LOAD_DEPT.DNAME
+
+  subscription: 
+    version-number: 44600121828408
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: EBA_DEMO_LOAD_DEPT
+
+  column-mapping: 
+    return: DEPTNO
+    display: DNAME
+    default-sort: DNAME
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: EBA_DEMO_LOAD_EMP.ENAME =============
+  id: 9716907525885700
+  identification: 
+    name: EBA_DEMO_LOAD_EMP.ENAME
+
+  subscription: 
+    version-number: 44600121828496
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: EBA_DEMO_LOAD_EMP
+
+  column-mapping: 
+    return: EMPNO
+    display: ENAME
+    default-sort: ENAME
+    sort-direction: Ascending (Nulls Last)
+
