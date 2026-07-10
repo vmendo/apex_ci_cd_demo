@@ -1,0 +1,259 @@
+---
+- # ====== Breadcrumb: Breadcrumb ==============================
+  id: 9688254832885794
+  identification: 
+    name: Breadcrumb
+
+  entries: 
+  - # ====== Entry: Home =========================================
+    id: 9688497771885794
+    identification: 
+      name: Home
+      page-number: 1
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+        page: 1 # Home
+
+  - # ====== Entry: Dashboard ====================================
+    id: 9714367249885714
+    identification: 
+      name: Dashboard
+      page-number: 2
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+        page: 2 # Dashboard
+
+  - # ====== Entry: Load Emp Search ==============================
+    id: 9724070715885676
+    identification: 
+      name: Load Emp Search
+      page-number: 3
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:::'
+        page: 3 # Load Emp Search
+
+  - # ====== Entry: Load Emp Report ==============================
+    id: 9743319965885118
+    identification: 
+      name: Load Emp Report
+      page-number: 4
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+        page: 4 # Load Emp Report
+
+  - # ====== Entry: Calendar =====================================
+    id: 9745605870885110
+    identification: 
+      name: Calendar
+      page-number: 6
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+        page: 6 # Calendar
+
+  - # ====== Entry: Sales ========================================
+    id: 9824658466858327
+    identification: 
+      name: Sales
+      page-number: 9
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:9:&APP_SESSION.::&DEBUG.:::'
+        page: 9 # Sales
+
+  - # ====== Entry: Merchandise ==================================
+    id: 10048736760357288
+    identification: 
+      name: Merchandise
+      page-number: 11
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+        page: 11
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 10055168051293307
+    identification: 
+      name: Merchandise IR
+      page-number: 13
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
+        page: 13
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 10060475967164504
+    identification: 
+      name: Merchandise IR
+      page-number: 15
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:15:&APP_SESSION.::&DEBUG.:::'
+        page: 15
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 10066324567100470
+    identification: 
+      name: Merchandise IR
+      page-number: 17
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:17:&APP_SESSION.::&DEBUG.:::'
+        page: 17
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 10072298823048480
+    identification: 
+      name: Merchandise IR
+      page-number: 19
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:19:&APP_SESSION.::&DEBUG.:::'
+        page: 19
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 10191423373795565
+    identification: 
+      name: Merchandise IR
+      page-number: 7
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
+        page: 7
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 11071304596844600
+    identification: 
+      name: Merchandise IR
+      page-number: 7
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
+        page: 7
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 11099521888735515
+    identification: 
+      name: Merchandise IR
+      page-number: 11
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+        page: 11
+
+  - # ====== Entry: Merchandise IR ===============================
+    id: 19656000069616009
+    identification: 
+      name: Merchandise IR
+      page-number: 11
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+        page: 11
+
+  - # ====== Entry: Merchandise ==================================
+    id: 19676734269968052
+    identification: 
+      name: Merchandise
+      page-number: 13
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
+        page: 13
+
+  - # ====== Entry: Merchandise_report ===========================
+    id: 36092020788859380
+    identification: 
+      name: Merchandise_report
+      page-number: 11
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+        page: 11
+
+  - # ====== Entry: Merchandise ==================================
+    id: 36267509112096408
+    identification: 
+      name: Merchandise
+      page-number: 7
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
+        page: 7
+
