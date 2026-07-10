@@ -171,7 +171,7 @@
     link: 
       target: 
         url: 'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
-        page: 7
+        page: 7 # Merchandise
 
   - # ====== Entry: Merchandise IR ===============================
     id: 11071304596844600
@@ -185,7 +185,7 @@
     link: 
       target: 
         url: 'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
-        page: 7
+        page: 7 # Merchandise
 
   - # ====== Entry: Merchandise IR ===============================
     id: 11099521888735515
@@ -242,4 +242,18 @@
       target: 
         url: 'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
         page: 11
+
+  - # ====== Entry: Merchandise ==================================
+    id: 36267509112096408
+    identification: 
+      name: Merchandise
+      page-number: 7
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
+        page: 7 # Merchandise
 
