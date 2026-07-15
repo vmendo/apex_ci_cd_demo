@@ -1,0 +1,29 @@
+file "icons/app-icon-144-rounded.png" (
+    mimeType: image/png
+    charSet: utf-8
+)
+
+file "icons/app-icon-192.png" (
+    mimeType: image/png
+    charSet: utf-8
+)
+
+file "icons/app-icon-256-rounded.png" (
+    mimeType: image/png
+    charSet: utf-8
+)
+
+file "icons/app-icon-32.png" (
+    mimeType: image/png
+    charSet: utf-8
+)
+
+file "icons/app-icon-512.png" (
+    mimeType: image/png
+    charSet: utf-8
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"29e551c08156446a4211fa16c2f582e066e98a28","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

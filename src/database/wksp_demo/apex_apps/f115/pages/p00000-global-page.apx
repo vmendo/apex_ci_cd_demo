@@ -1,0 +1,11 @@
+page 0 (
+    name: Global Page
+    appearance {
+        templateOptions: #DEFAULT#
+    }
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"038ce1be1c1a042ca1aef1153b6130f45a3f982a","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

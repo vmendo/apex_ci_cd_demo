@@ -1,0 +1,15 @@
+authorization administration-rights (
+    name: Administration Rights
+    type: plSqlFunctionBody
+    settings {
+        plsqlFunctionBody: return true;
+    }
+    error {
+        errorMessage: Insufficient privileges, user is not an Administrator
+    }
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"9f30e09aa2636ba495c05a8aebc303aeeefb4312","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

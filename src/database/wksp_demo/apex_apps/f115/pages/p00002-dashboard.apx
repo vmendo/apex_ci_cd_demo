@@ -1,0 +1,319 @@
+page 2 (
+    name: Dashboard
+    alias: DASHBOARD
+    title: Dashboard
+    appearance {
+        pageTemplate: @/standard
+        templateOptions: #DEFAULT#
+    }
+    navigation {
+        cursorFocus: doNotFocusCursor
+    }
+    security {
+        pageAccessProtection: argumentsMustHaveChecksum
+        formAutoComplete: false
+    }
+
+    region breadcrumb (
+        name: Breadcrumb
+        type: breadcrumb
+        source {
+            breadcrumb: @breadcrumb
+        }
+        layout {
+            sequence: 20
+            slot: breadcrumbBar
+        }
+        appearance {
+            template: @/title-bar
+            templateOptions: [
+                #DEFAULT#
+                t-BreadcrumbRegion--useBreadcrumbTitle
+            ]
+        }
+        componentAppearance {
+            breadcrumbTemplate: @/breadcrumb
+            templateOptions: #DEFAULT#
+        }
+    )
+
+    region hiredate (
+        name: Hiredate
+        type: chart
+        layout {
+            sequence: 30
+            slot: body
+        }
+        appearance {
+            template: @/standard
+            templateOptions: [
+                #DEFAULT#
+                t-Region--scrollBody
+            ]
+        }
+        security {
+            escapeSpecialChars: false
+        }
+        legend {
+            show: false
+        }
+
+        series series (
+            name: Series 1
+            execution {
+                sequence: 10
+            }
+            source {
+                tableName: EBA_DEMO_LOAD_EMP
+            }
+            columnMapping {
+                label: HIREDATE
+                valueAggregation: count
+            }
+            link {
+                type: redirectThisApp
+                target: {
+                    page: 4
+                    items: {
+                        IR_HIREDATE: \&HIREDATE.\
+                    }
+                    action: resetRegions
+                }
+            }
+            performance {
+                maxRowsToProcess: 20
+            }
+        )
+
+        axis x (
+            name: x
+            majorTicks {
+                show: auto
+            }
+        )
+
+        axis y (
+            name: y
+            value {
+                format: decimal
+                decimalPlaces: 0
+            }
+            majorTicks {
+                show: auto
+            }
+        )
+
+    )
+
+    region job (
+        name: Job
+        type: chart
+        layout {
+            sequence: 10
+            slot: body
+        }
+        appearance {
+            template: @/standard
+            templateOptions: [
+                #DEFAULT#
+                t-Region--scrollBody
+            ]
+        }
+        security {
+            escapeSpecialChars: false
+        }
+        chart {
+            type: pie
+        }
+        value {
+            format: decimal
+            decimalPlaces: 0
+        }
+        legend {
+            show: false
+        }
+
+        series series (
+            name: Series 1
+            execution {
+                sequence: 10
+            }
+            source {
+                tableName: EBA_DEMO_LOAD_EMP
+            }
+            columnMapping {
+                label: JOB
+                valueAggregation: count
+            }
+            link {
+                type: redirectThisApp
+                target: {
+                    page: 4
+                    items: {
+                        IR_JOB: \&JOB.\
+                    }
+                    action: resetRegions
+                }
+            }
+            label {
+                show: true
+            }
+            performance {
+                maxRowsToProcess: 20
+            }
+        )
+
+    )
+
+    region mgr (
+        name: Mgr
+        type: chart
+        layout {
+            sequence: 20
+            slot: body
+            startNewRow: false
+        }
+        appearance {
+            template: @/standard
+            templateOptions: [
+                #DEFAULT#
+                t-Region--scrollBody
+            ]
+        }
+        security {
+            escapeSpecialChars: false
+        }
+        legend {
+            show: false
+        }
+
+        series series (
+            name: Series 1
+            execution {
+                sequence: 10
+            }
+            source {
+                type: sqlQuery
+                sqlQuery:
+                    ```sql
+                    select ( select l."ENAME" from "EBA_DEMO_LOAD_EMP" l where l."EMPNO" = c."MGR") "MGR", 
+                           count(*) value
+                      from "EBA_DEMO_LOAD_EMP" c
+                     group by c."MGR"
+                     order by 2 desc
+                    ```
+            }
+            columnMapping {
+                label: MGR
+                value: VALUE
+            }
+            link {
+                type: redirectThisApp
+                target: {
+                    page: 4
+                    items: {
+                        IR_MGR: \&MGR.\
+                    }
+                    action: resetRegions
+                }
+            }
+            performance {
+                maxRowsToProcess: 20
+            }
+        )
+
+        axis x (
+            name: x
+            majorTicks {
+                show: auto
+            }
+        )
+
+        axis y (
+            name: y
+            value {
+                format: decimal
+                decimalPlaces: 0
+            }
+            majorTicks {
+                show: auto
+            }
+        )
+
+    )
+
+    region sal (
+        name: Sal
+        type: chart
+        layout {
+            sequence: 40
+            slot: body
+            startNewRow: false
+        }
+        appearance {
+            template: @/standard
+            templateOptions: [
+                #DEFAULT#
+                t-Region--scrollBody
+            ]
+        }
+        security {
+            escapeSpecialChars: false
+        }
+        legend {
+            show: false
+        }
+
+        series series (
+            name: Series 1
+            execution {
+                sequence: 10
+            }
+            source {
+                tableName: EBA_DEMO_LOAD_EMP
+            }
+            columnMapping {
+                label: SAL
+                valueAggregation: count
+            }
+            link {
+                type: redirectThisApp
+                target: {
+                    page: 4
+                    items: {
+                        IR_SAL: \&SAL.\
+                    }
+                    action: resetRegions
+                }
+            }
+            performance {
+                maxRowsToProcess: 20
+            }
+        )
+
+        axis x (
+            name: x
+            majorTicks {
+                show: auto
+            }
+        )
+
+        axis y (
+            name: y
+            value {
+                format: decimal
+                decimalPlaces: 0
+            }
+            majorTicks {
+                show: auto
+            }
+        )
+
+    )
+
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"e94485ff17efa761c6aa3500de19219f1819a6fb","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

@@ -1,0 +1,28 @@
+lov eba-demo-load-dept-dname (
+    name: EBA_DEMO_LOAD_DEPT.DNAME
+    source {
+        tableName: EBA_DEMO_LOAD_DEPT
+    }
+    columnMapping {
+        return: DEPTNO
+        display: DNAME
+        defaultSort: DNAME
+    }
+)
+
+lov eba-demo-load-emp-ename (
+    name: EBA_DEMO_LOAD_EMP.ENAME
+    source {
+        tableName: EBA_DEMO_LOAD_EMP
+    }
+    columnMapping {
+        return: EMPNO
+        display: ENAME
+        defaultSort: ENAME
+    }
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"d0810f7a3681517ee7a076a720794f71121da293","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

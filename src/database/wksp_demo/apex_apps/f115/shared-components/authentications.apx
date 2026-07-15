@@ -1,0 +1,9 @@
+authentication oracle-apex-accounts (
+    name: Oracle APEX Accounts
+    type: oracleApexAccounts
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"52c9d56315ea91b46fcda845d66034c61f658427","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

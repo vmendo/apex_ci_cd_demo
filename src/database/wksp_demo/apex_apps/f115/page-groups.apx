@@ -1,0 +1,12 @@
+pageGroup administration (
+    name: Administration
+)
+
+pageGroup user-settings (
+    name: User Settings
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"a6765625e5f745698f2f50fee0223a7e766bd953","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

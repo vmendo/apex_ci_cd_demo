@@ -1,0 +1,66 @@
+page 1 (
+    name: Home
+    alias: HOME
+    title: Load Emp
+    appearance {
+        pageTemplate: @/standard
+        templateOptions: #DEFAULT#
+    }
+    navigation {
+        cursorFocus: doNotFocusCursor
+    }
+    security {
+        pageAccessProtection: argumentsMustHaveChecksum
+        formAutoComplete: false
+    }
+
+    region load-emp (
+        name: Load Emp
+        type: staticContent
+        layout {
+            sequence: 10
+            slot: breadcrumbBar
+        }
+        appearance {
+            template: @/hero
+            templateOptions: #DEFAULT#
+        }
+        image {
+            fileUrl: #APP_FILES#icons/app-icon-512.png
+        }
+    )
+
+    region page-navigation (
+        name: Page Navigation
+        type: list
+        source {
+            list: @page-navigation
+        }
+        layout {
+            sequence: 30
+            slot: body
+        }
+        appearance {
+            template: @/blank-with-attributes
+            templateOptions: #DEFAULT#
+        }
+        componentAppearance {
+            listTemplate: @/cards
+            templateOptions: [
+                #DEFAULT#
+                u-colors
+                t-Cards--featured t-Cards--block force-fa-lg
+                t-Cards--displayIcons
+                t-Cards--4cols
+                t-Cards--hideBody
+                t-Cards--animColorFill
+            ]
+        }
+    )
+
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"dcb2047b014e1e7a2b9434fd86bcdfd7dde9c3e6","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

@@ -1,0 +1,28 @@
+buildOption commented-out (
+    name: Commented Out
+)
+
+buildOption feature-push-notifications (
+    name: Feature: Push Notifications
+    status {
+        status: include
+    }
+    advanced {
+        featureIdentifier: APPLICATION_PUSH_NOTIFICATIONS
+    }
+)
+
+buildOption feature-user-settings (
+    name: Feature: User Settings
+    status {
+        status: include
+    }
+    advanced {
+        featureIdentifier: APPLICATION_USER_SETTINGS
+    }
+)
+
+
+
+
+-- sqlcl_snapshot {"hash":"6640a0c6a5fd47505c59adea2cd8eec562c9bfb9","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}

@@ -1,0 +1,11 @@
+{
+  "app" : {
+    "id" : 115,
+    "runtime" : {
+      "debugging" : true
+    }
+  }
+}
+
+
+-- sqlcl_snapshot {"hash":"a52a82fa923408e24706c9d7c3296159e8b96499","type":"APEX_APPLICATIONS","name":"f115","schemaName":"DEMO","sxml":""}
