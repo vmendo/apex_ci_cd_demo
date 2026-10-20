@@ -1,0 +1,24 @@
+lov eba-demo-load-dept-dname (
+    name: EBA_DEMO_LOAD_DEPT.DNAME
+    source {
+        tableName: EBA_DEMO_LOAD_DEPT
+    }
+    columnMapping {
+        return: DEPTNO
+        display: DNAME
+        defaultSort: DNAME
+    }
+)
+
+lov eba-demo-load-emp-ename (
+    name: EBA_DEMO_LOAD_EMP.ENAME
+    source {
+        tableName: EBA_DEMO_LOAD_EMP
+    }
+    columnMapping {
+        return: EMPNO
+        display: ENAME
+        defaultSort: ENAME
+    }
+)
+
