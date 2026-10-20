@@ -1,0 +1,669 @@
+page 10 (
+    name: Sales Form
+    alias: SALES-FORM
+    title: Sales Form
+    appearance {
+        pageMode: modalDialog
+        dialogTemplate: @/drawer
+        templateOptions: [
+            #DEFAULT#
+            js-dialog-class-t-Drawer--pullOutEnd
+        ]
+    }
+    dialog {
+        chained: false
+    }
+    navigation {
+        cursorFocus: doNotFocusCursor
+    }
+    security {
+        pageAccessProtection: argumentsMustHaveChecksum
+        formAutoComplete: false
+    }
+
+    region buttons (
+        name: Buttons
+        type: staticContent
+        layout {
+            sequence: 20
+            slot: dialogFooter
+        }
+        appearance {
+            template: @/buttons-container
+            templateOptions: #DEFAULT#
+        }
+        settings {
+            outputAs: text
+        }
+    )
+
+    region sales-form (
+        name: Sales Form
+        type: form
+        source {
+            location: localDatabase
+            tableName: EBA_DEMO_LOAD_SALES
+        }
+        layout {
+            sequence: 10
+            slot: contentBody
+        }
+        appearance {
+            template: @/blank-with-attributes
+            templateOptions: #DEFAULT#
+        }
+        edit {
+            enabled: true
+            allowedOperations: [
+                add
+                update
+                delete
+            ]
+        }
+    )
+
+    pageItem P10_COUNTRY (
+        type: textField
+        label {
+            label: Country
+            alignment: right
+        }
+        layout {
+            sequence: 30
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: COUNTRY
+            dataType: varchar2
+        }
+    )
+
+    pageItem P10_CREATED (
+        type: datePicker
+        label {
+            label: Created
+            alignment: right
+        }
+        layout {
+            sequence: 160
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: CREATED
+            dataType: date
+        }
+    )
+
+    pageItem P10_ID (
+        type: hidden
+        layout {
+            sequence: 10
+            region: @sales-form
+            slot: regionBody
+        }
+        source {
+            formRegion: @sales-form
+            column: ID
+            dataType: number
+            queryOnly: true
+            primaryKey: true
+        }
+        security {
+            sessionStateProtection: checksumRequiredSessionLevel
+        }
+    )
+
+    pageItem P10_ITEM_TYPE (
+        type: textField
+        label {
+            label: Item Type
+            alignment: right
+        }
+        layout {
+            sequence: 40
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 50
+        }
+        source {
+            formRegion: @sales-form
+            column: ITEM_TYPE
+            dataType: varchar2
+        }
+    )
+
+    pageItem P10_LAST_UPDATED (
+        type: datePicker
+        label {
+            label: Last Updated
+            alignment: right
+        }
+        layout {
+            sequence: 170
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: LAST_UPDATED
+            dataType: date
+        }
+    )
+
+    pageItem P10_ORDER_DATE (
+        type: datePicker
+        label {
+            label: Order Date
+            alignment: right
+        }
+        layout {
+            sequence: 70
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: ORDER_DATE
+            dataType: date
+        }
+    )
+
+    pageItem P10_ORDER_ID (
+        type: numberField
+        label {
+            label: Order Id
+            alignment: right
+        }
+        layout {
+            sequence: 80
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: ORDER_ID
+            dataType: number
+        }
+    )
+
+    pageItem P10_ORDER_PRIORITY (
+        type: textField
+        label {
+            label: Order Priority
+            alignment: right
+        }
+        layout {
+            sequence: 60
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 1
+        }
+        source {
+            formRegion: @sales-form
+            column: ORDER_PRIORITY
+            dataType: varchar2
+        }
+    )
+
+    pageItem P10_REGION (
+        type: textField
+        label {
+            label: Region
+            alignment: right
+        }
+        layout {
+            sequence: 20
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: REGION
+            dataType: varchar2
+        }
+    )
+
+    pageItem P10_SALES_CHANNEL (
+        type: textField
+        label {
+            label: Sales Channel
+            alignment: right
+        }
+        layout {
+            sequence: 50
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 50
+        }
+        source {
+            formRegion: @sales-form
+            column: SALES_CHANNEL
+            dataType: varchar2
+        }
+    )
+
+    pageItem P10_SHIP_DATE (
+        type: datePicker
+        label {
+            label: Ship Date
+            alignment: right
+        }
+        layout {
+            sequence: 90
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: SHIP_DATE
+            dataType: date
+        }
+    )
+
+    pageItem P10_TOTAL_COST (
+        type: numberField
+        label {
+            label: Total Cost
+            alignment: right
+        }
+        layout {
+            sequence: 140
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: TOTAL_COST
+            dataType: number
+        }
+    )
+
+    pageItem P10_TOTAL_PROFIT (
+        type: numberField
+        label {
+            label: Total Profit
+            alignment: right
+        }
+        layout {
+            sequence: 150
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: TOTAL_PROFIT
+            dataType: number
+        }
+    )
+
+    pageItem P10_TOTAL_REVENUE (
+        type: numberField
+        label {
+            label: Total Revenue
+            alignment: right
+        }
+        layout {
+            sequence: 130
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: TOTAL_REVENUE
+            dataType: number
+        }
+    )
+
+    pageItem P10_UNITS_SOLD (
+        type: numberField
+        label {
+            label: Units Sold
+            alignment: right
+        }
+        layout {
+            sequence: 100
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: UNITS_SOLD
+            dataType: number
+        }
+    )
+
+    pageItem P10_UNIT_COST (
+        type: numberField
+        label {
+            label: Unit Cost
+            alignment: right
+        }
+        layout {
+            sequence: 120
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: UNIT_COST
+            dataType: number
+        }
+    )
+
+    pageItem P10_UNIT_PRICE (
+        type: numberField
+        label {
+            label: Unit Price
+            alignment: right
+        }
+        layout {
+            sequence: 110
+            region: @sales-form
+            slot: regionBody
+            alignment: left
+        }
+        appearance {
+            template: @/optional-floating
+            templateOptions: #DEFAULT#
+            width: 32
+        }
+        validation {
+            maxLength: 255
+        }
+        source {
+            formRegion: @sales-form
+            column: UNIT_PRICE
+            dataType: number
+        }
+    )
+
+    button cancel (
+        buttonName: CANCEL
+        label: Cancel
+        layout {
+            sequence: 10
+            region: @buttons
+            slot: close
+        }
+        appearance {
+            buttonTemplate: @/text
+            templateOptions: #DEFAULT#
+        }
+        behavior {
+            action: definedByDynamicAction
+        }
+    )
+
+    button create (
+        buttonName: CREATE
+        label: Create
+        layout {
+            sequence: 40
+            region: @buttons
+            slot: next
+        }
+        appearance {
+            buttonTemplate: @/text
+            hot: true
+            templateOptions: #DEFAULT#
+        }
+        behavior {
+            warnOnUnsavedChanges: doNotCheck
+            databaseAction: insert
+        }
+        serverSideCondition {
+            type: itemIsNull
+            item: P10_ID
+        }
+    )
+
+    button delete (
+        buttonName: DELETE
+        label: Delete
+        layout {
+            sequence: 20
+            region: @buttons
+            slot: delete
+        }
+        appearance {
+            buttonTemplate: @/text
+            templateOptions: #DEFAULT#
+        }
+        behavior {
+            executeValidations: false
+            warnOnUnsavedChanges: doNotCheck
+            databaseAction: delete
+            requiresConfirmation: true
+        }
+        confirmation {
+            message: &APP_TEXT$DELETE_MSG!RAW.
+            style: danger
+        }
+        serverSideCondition {
+            type: itemIsNotNull
+            item: P10_ID
+        }
+    )
+
+    button save (
+        buttonName: SAVE
+        label: Apply Changes
+        layout {
+            sequence: 30
+            region: @buttons
+            slot: next
+        }
+        appearance {
+            buttonTemplate: @/text
+            hot: true
+            templateOptions: #DEFAULT#
+        }
+        behavior {
+            warnOnUnsavedChanges: doNotCheck
+            databaseAction: update
+        }
+        serverSideCondition {
+            type: itemIsNotNull
+            item: P10_ID
+        }
+    )
+
+    dynamicAction cancel-dialog (
+        name: Cancel Dialog
+        execution {
+            sequence: 10
+        }
+        when {
+            event: click
+            selectionType: button
+            button: @cancel
+        }
+
+        action native-dialog-cancel (
+            action: cancelDialog
+            execution {
+                sequence: 10
+                fireOnInit: false
+            }
+        )
+
+    )
+
+    process close-dialog (
+        name: Close Dialog
+        type: closeDialog
+        execution {
+            sequence: 50
+        }
+        advanced {
+            executionMappingIdentifier: 9814482241858357
+        }
+        serverSideCondition {
+            type: requestIsContainedInValue
+            value: CREATE,SAVE,DELETE
+        }
+    )
+
+    process initialize-form-sales-form (
+        name: Initialize form Sales Form
+        type: formInitialization
+        formRegion: @sales-form
+        execution {
+            sequence: 10
+            point: beforeHeader
+        }
+        advanced {
+            executionMappingIdentifier: 9813611736858358
+        }
+    )
+
+    process process-form-sales-form (
+        name: Process form Sales Form
+        type: formAutoRowProcessing
+        formRegion: @sales-form
+        execution {
+            sequence: 10
+        }
+        advanced {
+            executionMappingIdentifier: 9814046585858358
+        }
+    )
+
+)
+
