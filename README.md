@@ -1,48 +1,16 @@
-# Empty reset on Tue Oct 20 09:21:38 GMT 2026
-# Example Template
+# CustomersCICD
 
-The introduction summarizes the purpose and function of the project, and should be concise (a brief paragraph or two). This introduction may be the same as the first paragraph on the project page.
+SQLcl 26.3 Projects demo for Customers application 103 and the EBA_CUST database model.
 
-For a full description of the module, visit the
-[project page](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/index.html).
+## Versioned sources
 
-Submit bug reports and feature suggestions, or track changes in the
-[issue queue](https://www.oracle.com).
+- `src/database/demo/`: database DDL and the APEX SQL application export used by SQLcl Projects for staging and deployment.
+- `src/apexlang/f103/application.apx`: the validated APEXlang representation of the same application.
+- `src/apexlang/f103/pages/`: the 127 exported application pages.
+- `src/apexlang/f103/shared-components/`: shared application components and assets.
 
+The APEXlang companion is exported and compiled on every release. Supporting-object installation scripts and source table data are excluded. `EXPORT_METADATA.json` records export normalization and exclusions.
 
-## Table of contents (optional)
+Each new release publishes the SQLcl Projects deployment ZIP plus an APEXlang source ZIP, each with a SHA256 checksum. APEXlang is included for review and versioning; deployment uses the Projects SQL application installer. The original v1.0 deployment ZIP is preserved when adding its companion source asset.
 
-- Requirements
-- Installation
-- Configuration
-- Troubleshooting
-- FAQ
-- Maintainers
-
-
-## Requirements (required)
-
-This project requires the following:
-
-[Hard Work](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/26.1/sqcug/quick-start.html#GUID-23869733-2E98-4ED7-B74F-5528EF35A25E)
-
-
-## Installation (required, unless a separate INSTALL.md is provided)
-
-Install as you would normally install.
-
-## Configuration (optional)
-
-## Troubleshooting (optional)
-
-## FAQ (optional)
-
-**Q: How do I write a README?**
-
-**A:** Follow this template. It's fun and easy!
-
-## Maintainers (optional)
-
-
-## For more information about SQLcl Projects:
-Reach out to the SQLcl Project Extension documentation by visiting the [Database Application CI/CD Doc Link](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/24.3/sqcug/database-application-ci-cd.html).
+The reusable stage and cleanup scripts live in the enclosing APEXCICD demo workspace. Full cleanup empties remote delivery content and deletes this generated checkout while preserving the GitHub repository, the outer scripts, logs, baseline recovery export, and controlled SQLcl runtime.
