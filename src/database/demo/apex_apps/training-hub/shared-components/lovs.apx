@@ -50,6 +50,30 @@ lov course-status (
 
 )
 
+lov demo-trn-courses-course-code (
+    name: DEMO_TRN_COURSES.COURSE_CODE
+    source {
+        tableName: DEMO_TRN_COURSES
+    }
+    columnMapping {
+        return: ID
+        display: COURSE_CODE
+        defaultSort: COURSE_CODE
+    }
+)
+
+lov demo-trn-employees-employee-number (
+    name: DEMO_TRN_EMPLOYEES.EMPLOYEE_NUMBER
+    source {
+        tableName: DEMO_TRN_EMPLOYEES
+    }
+    columnMapping {
+        return: ID
+        display: EMPLOYEE_NUMBER
+        defaultSort: EMPLOYEE_NUMBER
+    }
+)
+
 lov departments (
     name: DEPARTMENTS
     source {

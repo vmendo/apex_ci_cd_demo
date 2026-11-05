@@ -1,0 +1,229 @@
+page 7 (
+    name: Certifications
+    alias: CERTIFICATIONS
+    title: Certifications
+    appearance {
+        pageTemplate: @/standard
+        templateOptions: #DEFAULT#
+    }
+    navigation {
+        cursorFocus: doNotFocusCursor
+    }
+    security {
+        pageAccessProtection: argumentsMustHaveChecksum
+        formAutoComplete: false
+    }
+
+    region certifications (
+        name: Certifications
+        type: interactiveReport
+        source {
+            location: localDatabase
+            tableName: DEMO_TRN_CERTIFICATIONS
+        }
+        layout {
+            sequence: 10
+            slot: body
+        }
+        appearance {
+            template: @/interactive-report
+            templateOptions: [
+                #DEFAULT#
+                t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc
+            ]
+        }
+        pagination {
+            type: rowRangesXToY
+        }
+        messages {
+            whenNoDataFound: No data found.
+            whenMoreDataFound: The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.
+        }
+        advanced {
+            savedReportMappingIdentifier: 6702465232134245
+        }
+
+        column CERTIFICATE_CODE (
+            type: plainText
+            heading {
+                heading: Certificate Code
+            }
+            layout {
+                sequence: 4
+            }
+            source {
+                dataType: STRING
+            }
+            advanced {
+                endUserAlias: D
+            }
+        )
+
+        column COURSE_ID (
+            type: plainTextBasedOnLov
+            heading {
+                heading: Course
+            }
+            lov {
+                lov: @demo-trn-courses-course-code
+            }
+            layout {
+                sequence: 3
+            }
+            source {
+                dataType: STRING
+            }
+            advanced {
+                endUserAlias: C
+            }
+        )
+
+        column EMPLOYEE_ID (
+            type: plainTextBasedOnLov
+            heading {
+                heading: Employee
+            }
+            lov {
+                lov: @demo-trn-employees-employee-number
+            }
+            layout {
+                sequence: 2
+            }
+            source {
+                dataType: STRING
+            }
+            advanced {
+                endUserAlias: B
+            }
+        )
+
+        column EXPIRES_ON (
+            type: plainText
+            heading {
+                heading: Expires On
+            }
+            layout {
+                sequence: 6
+            }
+            source {
+                dataType: DATE
+            }
+            advanced {
+                endUserAlias: F
+            }
+        )
+
+        column ID (
+            type: hidden
+            heading {
+                heading: ID
+            }
+            layout {
+                sequence: 0
+            }
+            source {
+                primaryKey: true
+                dataType: NUMBER
+            }
+            advanced {
+                endUserAlias: A
+            }
+        )
+
+        column ISSUED_ON (
+            type: plainText
+            heading {
+                heading: Issued On
+            }
+            layout {
+                sequence: 5
+            }
+            source {
+                dataType: DATE
+            }
+            advanced {
+                endUserAlias: E
+            }
+        )
+
+        column NOTES (
+            type: plainText
+            heading {
+                heading: Notes
+            }
+            layout {
+                sequence: 8
+            }
+            source {
+                dataType: STRING
+            }
+            advanced {
+                endUserAlias: H
+            }
+        )
+
+        column STATUS (
+            type: plainText
+            heading {
+                heading: Status
+            }
+            layout {
+                sequence: 7
+            }
+            source {
+                dataType: STRING
+            }
+            advanced {
+                endUserAlias: G
+            }
+        )
+
+        page {
+            borderWidth: 0.5
+            borderColor: #666666
+        }
+
+        savedReport primary (
+            visibility: primaryDefault
+            view {
+                rowsPerPage: 50
+            }
+
+            displayColumn CERTIFICATE_CODE (
+                sequence: 4
+            )
+
+            displayColumn COURSE_ID (
+                sequence: 3
+            )
+
+            displayColumn EMPLOYEE_ID (
+                sequence: 2
+            )
+
+            displayColumn EXPIRES_ON (
+                sequence: 6
+            )
+
+            displayColumn ID (
+                sequence: 1
+            )
+
+            displayColumn ISSUED_ON (
+                sequence: 5
+            )
+
+            displayColumn NOTES (
+                sequence: 8
+            )
+
+            displayColumn STATUS (
+                sequence: 7
+            )
+
+        )
+
+    )
+
+)
+
