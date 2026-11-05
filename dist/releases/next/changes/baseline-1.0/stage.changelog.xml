@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+<include file="demo/sequences/demo_trn_categories_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_courses_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_departments_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_employees_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_enrollments_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_evaluations_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_instructors_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_locations_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_rooms_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/sequences/demo_trn_sessions_seq.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_categories.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_courses.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_departments.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_employees.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_enrollments.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_evaluations.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_instructors.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_locations.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_rooms.sql" relativeToChangelogFile="true"/>
+<include file="demo/tables/demo_trn_sessions.sql" relativeToChangelogFile="true"/>
+<include file="demo/indexes/demo_trn_courses_fk1_ix.sql" relativeToChangelogFile="true"/>
+<include file="demo/indexes/demo_trn_employees_fk1_ix.sql" relativeToChangelogFile="true"/>
+<include file="demo/indexes/demo_trn_enrollments_fk2_ix.sql" relativeToChangelogFile="true"/>
+<include file="demo/indexes/demo_trn_sessions_fk1_ix.sql" relativeToChangelogFile="true"/>
+<include file="demo/indexes/demo_trn_sessions_fk2_ix.sql" relativeToChangelogFile="true"/>
+<include file="demo/indexes/demo_trn_sessions_fk3_ix.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_courses_fk1.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_employees_fk1.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_enrollments_fk1.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_enrollments_fk2.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_evaluations_fk1.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_rooms_fk1.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_sessions_fk1.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_sessions_fk2.sql" relativeToChangelogFile="true"/>
+<include file="demo/ref_constraints/demo_trn_sessions_fk3.sql" relativeToChangelogFile="true"/>
+</databaseChangeLog>
