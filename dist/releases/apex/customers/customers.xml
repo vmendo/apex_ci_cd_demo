@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+<changeSet id="INSTALL_customers" author="SQLCL-Generated" logicalFilePath="releases/apex/customers/customers.xml" failOnError="true" runOnChange="true">
+    <n0:runApexScript objectName="install" objectType="SCRIPT" ownerName="SQLCL-Generated" sourceType="STRING" relativeToChangelogFile="true" >
+        <n0:source><![CDATA[
+-- sqlcl_checksum  48ec5f8d1d30050e715039b585eba103aa7ef627
+-- sqlcl_apexlang_payload_hash 117cc532ebe7c248533c89092e154efdc6bf43bd7a4499d998bb3b32eaafba29
+declare
+  -- sqlcl version       = 26.3.0.0 
+  -- override_schema     = ${apex.customers.schema}
+  -- override_alias      = ${apex.customers.alias}
+  -- override_workspace  = ${apex.customers.workspace}
+  -- override_app_id     = ${apex.customers.appId}
+
+  l_app_id varchar2(255) := q'[103]';
+
+  l_override_workspace varchar2(255) := q'[${apex.customers.workspace}]';
+  l_override_schema varchar2(255) := q'[${apex.customers.schema}]';
+  l_override_alias varchar2(255) := q'[${apex.customers.alias}]';
+  l_override_app_id varchar2(255) := q'[${apex.customers.appId}]';
+  l_generate_offset boolean := false;
+
+  function get_prop_default(p_prop_name varchar2)
+    return varchar2
+  is
+  begin
+    return '${apex.customers.' || p_prop_name || '}';
+  end;
+begin
+  apex_application_install.clear_all();
+
+  if l_override_workspace != get_prop_default('workspace')
+     and trim(l_override_workspace) is not null then
+    apex_application_install.set_workspace(l_override_workspace);
+    commit;
+  end if;
+
+  if l_override_app_id != get_prop_default('appId')
+     and trim(l_override_app_id) is not null then
+    apex_application_install.set_application_id(l_override_app_id);
+    l_generate_offset := true;
+  elsif trim(l_app_id) is not null then
+    apex_application_install.set_application_id(l_app_id);
+  end if;
+
+  if l_override_schema != get_prop_default('schema')
+     and trim(l_override_schema) is not null then
+    apex_application_install.set_schema(l_override_schema);
+  end if;
+
+  if l_override_alias != get_prop_default('alias')
+     and trim(l_override_alias) is not null then
+    apex_application_install.set_application_alias(l_override_alias);
+    l_generate_offset := true;
+  end if;
+
+  if l_generate_offset then
+    apex_application_install.generate_offset();
+  end if;
+end;
+/
+apex import -input customers
+        ]]></n0:source>
+    </n0:runApexScript>
+</changeSet>
+</databaseChangeLog> 
