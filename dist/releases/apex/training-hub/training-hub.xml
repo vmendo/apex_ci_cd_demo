@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+<changeSet id="INSTALL_training-hub" author="SQLCL-Generated" logicalFilePath="releases/apex/training-hub/training-hub.xml" failOnError="true" runOnChange="true">
+    <n0:runApexScript objectName="install" objectType="SCRIPT" ownerName="SQLCL-Generated" sourceType="STRING" relativeToChangelogFile="true" >
+        <n0:source><![CDATA[
+-- sqlcl_checksum  0ec3a79bf10460c47a04ff9b66f8a50bc439887a
+-- sqlcl_apexlang_payload_hash 11934dfe3b1b9427f0abf9ddfef18c3e75febfc15d8c6ca83407faaeb4434db8
+declare
+  -- sqlcl version       = 26.3.0.0 
+  -- override_schema     = ${apex.training-hub.schema}
+  -- override_alias      = ${apex.training-hub.alias}
+  -- override_workspace  = ${apex.training-hub.workspace}
+  -- override_app_id     = ${apex.training-hub.appId}
+
+  l_app_id varchar2(255) := q'[110]';
+
+  l_override_workspace varchar2(255) := q'[${apex.training-hub.workspace}]';
+  l_override_schema varchar2(255) := q'[${apex.training-hub.schema}]';
+  l_override_alias varchar2(255) := q'[${apex.training-hub.alias}]';
+  l_override_app_id varchar2(255) := q'[${apex.training-hub.appId}]';
+  l_generate_offset boolean := false;
+
+  function get_prop_default(p_prop_name varchar2)
+    return varchar2
+  is
+  begin
+    return '${apex.training-hub.' || p_prop_name || '}';
+  end;
+begin
+  apex_application_install.clear_all();
+
+  if l_override_workspace != get_prop_default('workspace')
+     and trim(l_override_workspace) is not null then
+    apex_application_install.set_workspace(l_override_workspace);
+    commit;
+  end if;
+
+  if l_override_app_id != get_prop_default('appId')
+     and trim(l_override_app_id) is not null then
+    apex_application_install.set_application_id(l_override_app_id);
+    l_generate_offset := true;
+  elsif trim(l_app_id) is not null then
+    apex_application_install.set_application_id(l_app_id);
+  end if;
+
+  if l_override_schema != get_prop_default('schema')
+     and trim(l_override_schema) is not null then
+    apex_application_install.set_schema(l_override_schema);
+  end if;
+
+  if l_override_alias != get_prop_default('alias')
+     and trim(l_override_alias) is not null then
+    apex_application_install.set_application_alias(l_override_alias);
+    l_generate_offset := true;
+  end if;
+
+  if l_generate_offset then
+    apex_application_install.generate_offset();
+  end if;
+end;
+/
+apex import -input training-hub
+        ]]></n0:source>
+    </n0:runApexScript>
+</changeSet>
+</databaseChangeLog> 
