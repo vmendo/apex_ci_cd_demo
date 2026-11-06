@@ -1,0 +1,428 @@
+page 12 (
+    name: Course
+    alias: COURSE
+    title: Course
+    appearance {
+        pageTemplate: @/standard
+        templateOptions: #DEFAULT#
+    }
+    security {
+        pageAccessProtection: argumentsMustHaveChecksum
+        formAutoComplete: false
+    }
+
+    region breadcrumb (
+        name: Course
+        type: breadcrumb
+        source {
+            breadcrumb: @breadcrumb
+        }
+        layout {
+            sequence: 10
+            slot: breadcrumbBar
+        }
+        appearance {
+            template: @/title-bar
+            templateOptions: #DEFAULT#
+        }
+        componentAppearance {
+            breadcrumbTemplate: @/breadcrumb
+        }
+    )
+
+    region buttons (
+        name: Actions
+        type: staticContent
+        layout {
+            sequence: 30
+            slot: body
+        }
+        appearance {
+            template: @/buttons-container
+            templateOptions: #DEFAULT#
+        }
+    )
+
+    region course (
+        name: Course Details
+        type: form
+        source {
+            location: localDatabase
+            tableName: DEMO_TRN_COURSES
+        }
+        layout {
+            sequence: 20
+            slot: body
+        }
+        appearance {
+            template: @/standard
+            templateOptions: #DEFAULT#
+        }
+        edit {
+            enabled: true
+            allowedOperations: [
+                add
+                update
+                delete
+            ]
+        }
+    )
+
+    pageItem P12_CATEGORY_ID (
+        type: selectList
+        label {
+            label: Category
+        }
+        lov {
+            type: sharedComponent
+            lov: @categories
+            nullDisplayValue: Select an option
+        }
+        layout {
+            sequence: 20
+            region: @course
+            slot: regionBody
+        }
+        appearance {
+            template: @/required-floating
+        }
+        validation {
+            valueRequired: true
+        }
+        source {
+            formRegion: @course
+            column: CATEGORY_ID
+            dataType: number
+        }
+    )
+
+    pageItem P12_COURSE_CODE (
+        type: textField
+        label {
+            label: Course Code
+        }
+        layout {
+            sequence: 30
+            region: @course
+            slot: regionBody
+        }
+        appearance {
+            template: @/required-floating
+            width: 50
+        }
+        validation {
+            valueRequired: true
+            maxLength: 20
+        }
+        source {
+            formRegion: @course
+            column: COURSE_CODE
+            dataType: varchar2
+        }
+    )
+
+    pageItem P12_COURSE_FEE (
+        type: numberField
+        label {
+            label: Course Fee EUR
+        }
+        settings {
+            minValue: 0
+        }
+        layout {
+            sequence: 70
+            region: @course
+            slot: regionBody
+        }
+        appearance {
+            template: @/required-floating
+            width: 50
+        }
+        validation {
+            valueRequired: true
+        }
+        source {
+            formRegion: @course
+            column: COURSE_FEE
+            dataType: number
+        }
+        default {
+            type: static
+            staticValue: 0
+        }
+    )
+
+    pageItem P12_COURSE_NAME (
+        type: textField
+        label {
+            label: Course Name
+        }
+        layout {
+            sequence: 40
+            region: @course
+            slot: regionBody
+        }
+        appearance {
+            template: @/required-floating
+            width: 50
+        }
+        validation {
+            valueRequired: true
+            maxLength: 200
+        }
+        source {
+            formRegion: @course
+            column: COURSE_NAME
+            dataType: varchar2
+        }
+    )
+
+    pageItem P12_DESCRIPTION (
+        type: textarea
+        label {
+            label: Learning Objectives
+        }
+        settings {
+            charCounter: true
+        }
+        layout {
+            sequence: 50
+            region: @course
+            slot: regionBody
+        }
+        appearance {
+            template: @/optional-floating
+            width: 50
+            height: 4
+        }
+        validation {
+            maxLength: 1000
+        }
+        source {
+            formRegion: @course
+            column: DESCRIPTION
+            dataType: varchar2
+        }
+    )
+
+    pageItem P12_DURATION_HOURS (
+        type: numberField
+        label {
+            label: Duration Hours
+        }
+        settings {
+            minValue: 0.1
+            maxValue: 80
+        }
+        layout {
+            sequence: 60
+            region: @course
+            slot: regionBody
+        }
+        appearance {
+            template: @/required-floating
+            width: 50
+        }
+        validation {
+            valueRequired: true
+        }
+        source {
+            formRegion: @course
+            column: DURATION_HOURS
+            dataType: number
+        }
+    )
+
+    pageItem P12_ID (
+        type: hidden
+        layout {
+            sequence: 10
+            region: @course
+            slot: regionBody
+        }
+        source {
+            formRegion: @course
+            column: ID
+            dataType: number
+            primaryKey: true
+        }
+        security {
+            sessionStateProtection: checksumRequiredSessionLevel
+        }
+    )
+
+    pageItem P12_STATUS (
+        type: selectList
+        label {
+            label: Status
+        }
+        lov {
+            type: sharedComponent
+            lov: @course-status
+            displayNullValue: false
+        }
+        layout {
+            sequence: 80
+            region: @course
+            slot: regionBody
+        }
+        appearance {
+            template: @/required-floating
+        }
+        validation {
+            valueRequired: true
+        }
+        source {
+            formRegion: @course
+            column: STATUS
+            dataType: varchar2
+        }
+        default {
+            type: static
+            staticValue: ACTIVE
+        }
+    )
+
+    button cancel (
+        buttonName: CANCEL
+        label: Cancel
+        layout {
+            sequence: 10
+            region: @buttons
+            slot: previous
+        }
+        appearance {
+            buttonTemplate: @/text
+        }
+        behavior {
+            action: redirectThisApp
+            target: {
+                page: 3
+                clearCache: 12
+            }
+            warnOnUnsavedChanges: doNotCheck
+        }
+    )
+
+    button create (
+        buttonName: CREATE
+        label: Create Course
+        layout {
+            sequence: 40
+            region: @buttons
+            slot: next
+        }
+        appearance {
+            buttonTemplate: @/text
+            hot: true
+        }
+        behavior {
+            warnOnUnsavedChanges: doNotCheck
+            databaseAction: insert
+        }
+        serverSideCondition {
+            type: itemIsNull
+            item: P12_ID
+        }
+    )
+
+    button delete (
+        buttonName: DELETE
+        label: Delete Course
+        layout {
+            sequence: 20
+            region: @buttons
+            slot: delete
+        }
+        appearance {
+            buttonTemplate: @/text
+        }
+        behavior {
+            executeValidations: false
+            warnOnUnsavedChanges: doNotCheck
+            databaseAction: delete
+            requiresConfirmation: true
+        }
+        confirmation {
+            message: Delete this course? Related records may prevent deletion.
+            style: danger
+        }
+        serverSideCondition {
+            type: itemIsNotNull
+            item: P12_ID
+        }
+    )
+
+    button save (
+        buttonName: SAVE
+        label: Save Changes
+        layout {
+            sequence: 30
+            region: @buttons
+            slot: next
+        }
+        appearance {
+            buttonTemplate: @/text
+            hot: true
+        }
+        behavior {
+            warnOnUnsavedChanges: doNotCheck
+            databaseAction: update
+        }
+        serverSideCondition {
+            type: itemIsNotNull
+            item: P12_ID
+        }
+    )
+
+    process initialize-course (
+        name: Initialize Course
+        type: formInitialization
+        formRegion: @course
+        execution {
+            sequence: 10
+            point: beforeHeader
+        }
+        advanced {
+            executionMappingIdentifier: 4115293945175030
+        }
+    )
+
+    process save-course (
+        name: Process Course
+        type: formAutoRowProcessing
+        formRegion: @course
+        execution {
+            sequence: 10
+        }
+        successMessage {
+            successMessage: Course changes saved.
+        }
+        advanced {
+            executionMappingIdentifier: 4115386777175030
+        }
+        serverSideCondition {
+            type: requestIsContainedInValue
+            value: CREATE,SAVE,DELETE
+        }
+    )
+
+    branch (
+        name: Return to Course Report
+        execution {
+            sequence: 20
+        }
+        behavior {
+            target: {
+                page: 3
+                clearCache: 12
+            }
+        }
+        serverSideCondition {
+            type: requestIsContainedInValue
+            value: CREATE,SAVE,DELETE
+        }
+    )
+
+)
+
