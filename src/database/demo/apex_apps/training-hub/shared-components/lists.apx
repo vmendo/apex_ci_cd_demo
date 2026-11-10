@@ -62,6 +62,22 @@ list navigation-bar (
 list navigation-menu (
     name: Training Navigation
 
+    entry certifications (
+        label: Certifications
+        layout {
+            sequence: 70
+        }
+        isCurrent {
+            type: pages
+            pages: 200
+        }
+        link {
+            target: {
+                page: 200
+            }
+        }
+    )
+
     entry course-sessions (
         label: Course Sessions
         icon {

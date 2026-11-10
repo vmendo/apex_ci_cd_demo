@@ -8,8 +8,8 @@
 <changeSet id="INSTALL_training-hub" author="SQLCL-Generated" logicalFilePath="releases/apex/training-hub/training-hub.xml" failOnError="true" runOnChange="true">
     <n0:runApexScript objectName="install" objectType="SCRIPT" ownerName="SQLCL-Generated" sourceType="STRING" relativeToChangelogFile="true" >
         <n0:source><![CDATA[
--- sqlcl_checksum  2c22e6ff00bedc1a76c0ff0ce9d13c232cc6e7bb
--- sqlcl_apexlang_payload_hash 65f4f3fb9e0d8f27b08b265b516b89afeee0bda6fadc1989221591278b0f3efe
+-- sqlcl_checksum  a2d15a6a66963289c52572545b8de237458c9227
+-- sqlcl_apexlang_payload_hash 513cf0851e8b674ce7791da42b17c9dc8b8e1473e0286e25c220080c1de24cd4
 declare
   -- sqlcl version       = 26.3.0.0 
   -- override_schema     = ${apex.training-hub.schema}
