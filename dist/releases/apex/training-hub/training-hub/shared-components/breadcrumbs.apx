@@ -1,6 +1,19 @@
 breadcrumb breadcrumb (
     name: Training Breadcrumb
 
+    entry certifications (
+        name: Certifications
+        pageNumber: 200
+        execution {
+            sequence: 10
+        }
+        link {
+            target: {
+                page: 200
+            }
+        }
+    )
+
     entry course (
         name: Course
         pageNumber: 12
