@@ -183,12 +183,32 @@ page 200 (
                 rowsPerPage: 15
             }
 
+            displayColumn CERTIFICATE_CODE (
+                sequence: 3
+            )
+
             displayColumn COURSE_NAME (
                 sequence: 1
             )
 
             displayColumn EMPLOYEE_NAME (
                 sequence: 2
+            )
+
+            displayColumn EXPIRES_ON (
+                sequence: 5
+            )
+
+            displayColumn ISSUED_ON (
+                sequence: 4
+            )
+
+            displayColumn NOTES (
+                sequence: 7
+            )
+
+            displayColumn STATUS (
+                sequence: 6
             )
 
         )
